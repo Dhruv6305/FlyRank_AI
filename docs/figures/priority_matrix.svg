@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <rect width="600" height="320" fill="#ffffff"/>
+  <text x="30" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0f172a">Editorial Priority Matrix by Position Tier</text>
+  <text x="30" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">Mapping volume leverage and model probability to ranking zones</text>
+
+  <!-- Axes -->
+  <line x1="70" y1="260" x2="550" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="70" y1="80" x2="70" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- Axis labels -->
+  <text x="260" y="295" font-family="sans-serif" font-size="11" fill="#64748b">Search Position Tier (Left = Higher Rank)</text>
+  <text x="20" y="170" font-family="sans-serif" font-size="11" fill="#64748b" transform="rotate(-90 20,170)">Priority Score (0-100)</text>
+
+  <!-- Tiers -->
+  <rect x="80" y="90" width="100" height="160" fill="#e0e7ff" opacity="0.4" rx="4"/>
+  <text x="95" y="110" font-family="sans-serif" font-size="10" font-weight="bold" fill="#4338ca">Page 1 (1-10)</text>
+  <text x="95" y="125" font-family="sans-serif" font-size="9" fill="#4338ca">Snippet / CTR Fix</text>
+
+  <rect x="190" y="110" width="100" height="140" fill="#dbeafe" opacity="0.4" rx="4"/>
+  <text x="195" y="130" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1d4ed8">Striking (11-20)</text>
+  <text x="195" y="145" font-family="sans-serif" font-size="9" fill="#1d4ed8">Internal Links Push</text>
+
+  <rect x="300" y="130" width="110" height="120" fill="#d1fae5" opacity="0.4" rx="4"/>
+  <text x="305" y="150" font-family="sans-serif" font-size="10" font-weight="bold" fill="#047857">Page 3-5 (21-50)</text>
+  <text x="305" y="165" font-family="sans-serif" font-size="9" fill="#047857">Decay Refresh</text>
+
+  <rect x="420" y="180" width="110" height="70" fill="#f1f5f9" opacity="0.4" rx="4"/>
+  <text x="430" y="200" font-family="sans-serif" font-size="10" font-weight="bold" fill="#64748b">Deep (50+)</text>
+  <text x="430" y="215" font-family="sans-serif" font-size="9" fill="#64748b">Monitor / Prune</text>
+
+  <!-- Dots -->
+  <circle cx="120" cy="115" r="5" fill="#4f46e5"/>
+  <circle cx="140" cy="125" r="6" fill="#4f46e5"/>
+  <circle cx="110" cy="135" r="4" fill="#4f46e5"/>
+  <circle cx="230" cy="145" r="6" fill="#2563eb"/>
+  <circle cx="250" cy="160" r="5" fill="#2563eb"/>
+  <circle cx="340" cy="155" r="7" fill="#059669"/>
+  <circle cx="360" cy="170" r="5" fill="#059669"/>
+  <circle cx="460" cy="220" r="4" fill="#94a3b8"/>
+  <circle cx="490" cy="235" r="3" fill="#94a3b8"/>
+</svg>

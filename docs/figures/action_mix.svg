@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <rect width="600" height="320" fill="#ffffff"/>
+  <text x="30" y="35" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#0f172a">Content Portfolio Action Mix — Editorial Playbook</text>
+  <text x="30" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">Distribution of 30,000 portfolio items mapped to strategic editorial actions</text>
+
+  <!-- Bar 1: Review Title & Snippet -->
+  <text x="30" y="95" font-family="sans-serif" font-size="12" fill="#334155">review_title_and_snippet</text>
+  <rect x="230" y="80" width="65" height="24" rx="4" fill="#6366f1"/>
+  <text x="305" y="96" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569">3,248 (10.8%)</text>
+
+  <!-- Bar 2: Page 1 Push Internal Links -->
+  <text x="30" y="140" font-family="sans-serif" font-size="12" fill="#334155">page_1_push_internal_links</text>
+  <rect x="230" y="125" width="96" height="24" rx="4" fill="#3b82f6"/>
+  <text x="336" y="141" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569">4,812 (16.0%)</text>
+
+  <!-- Bar 3: Refresh Content & Facts -->
+  <text x="30" y="185" font-family="sans-serif" font-size="12" fill="#334155">refresh_content_and_facts</text>
+  <rect x="230" y="170" width="119" height="24" rx="4" fill="#10b981"/>
+  <text x="359" y="186" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569">5,961 (19.9%)</text>
+
+  <!-- Bar 4: Expand Depth & Subtopics -->
+  <text x="30" y="230" font-family="sans-serif" font-size="12" fill="#334155">expand_depth_and_subtopics</text>
+  <rect x="230" y="215" width="23" height="24" rx="4" fill="#f59e0b"/>
+  <text x="263" y="231" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569">1,124 (3.8%)</text>
+
+  <!-- Bar 5: Monitor & Preserve -->
+  <text x="30" y="275" font-family="sans-serif" font-size="12" fill="#334155">monitor_and_preserve</text>
+  <rect x="230" y="260" width="297" height="24" rx="4" fill="#94a3b8"/>
+  <text x="537" y="276" font-family="sans-serif" font-size="11" font-weight="600" fill="#475569">14,855 (49.5%)</text>
+</svg>
