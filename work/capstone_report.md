@@ -10,7 +10,7 @@
 
 ## 0. Abstract
 
-How can enterprise content teams systematically prioritize high-leverage search opportunities across catalogs of tens of thousands of URLs without relying on arbitrary keyword heuristics? We analyzed multi-client search and engagement telemetry from the FlyRank warehouse release (78.8M daily performance rows across 104 clients and 519K content pieces, focusing on a 500,000-row mid-panel cohort from March 2026). We formulated organic search click capture as a ranking task, establishing a transparent rule baseline targeting Page 1 low-CTR anomalies and training a depth-constrained Random Forest using strictly 1-day lagged features validated under an honest client-grouped split (`GroupShuffleSplit`). The Random Forest model achieved a **measured Precision@50 of 0.980** and **ROC-AUC of 0.918** on completely unseen clients (outperforming the 0.490 random picking base rate and beating the rule baseline's 0.824 AUC), while maintaining robustness in a deliberate feature-leakage audit. These validated signals feed directly into an editorial content action playbook that classifies mature decaying pages, CTR fixes, and striking-distance queries into prioritized, human-reviewed queues.
+How can enterprise content teams systematically prioritize high-leverage search opportunities across catalogs of tens of thousands of URLs to solve FlyRank's core challenge: intervening before pages hit the 270–365 day content decay cliff? We analyzed multi-client search and engagement telemetry from the FlyRank warehouse release (78.8M daily performance rows across 104 clients and 519K content pieces, focusing on a 500,000-row mid-panel cohort from March 2026). We formulated organic search click capture as a ranking task, establishing a transparent rule baseline targeting Page 1 low-CTR anomalies and training a depth-constrained Random Forest using strictly 1-day lagged features validated under an honest client-grouped split (`GroupShuffleSplit`). The Random Forest model achieved a **measured Precision@50 of 0.980** and **ROC-AUC of 0.918** on completely unseen clients (outperforming the 0.490 random picking base rate and beating the rule baseline's 0.824 AUC), while maintaining robustness in a deliberate feature-leakage audit. These validated signals feed directly into an editorial content action playbook that operationalizes FlyRank's 3.2× content refresh multiplier by triaging decaying assets, CTR fixes, and striking-distance queries into prioritized, human-reviewed queues.
 
 ---
 
@@ -128,3 +128,43 @@ python -c "import pandas, sklearn, duckdb; print('Environment verified.')"
 This research was conducted as part of the **FlyRank AI Machine Learning Internship**.
 
 **Data Credit:** Built on the FlyRank ML Internship dataset hosted and maintained by [FlyRank (https://flyrank.ai)](https://flyrank.ai). We thank Haris and the FlyRank engineering team for providing open, privacy-preserving multi-client warehouse releases for applied machine learning research.
+
+---
+
+## 10. Showcase Presentation & Communications (ML-12)
+
+### 5-Minute Technical Demo Presentation Outline
+1. **Minute 1: The Bottleneck & The FlyRank Decay Cliff**
+   - 50,000 URLs vs 20 weekly updates. FlyRank's 270–365 day decay cliff (health plummets from 33.1 to 14.0) vs the 3.2× refresh multiplier on updated mature pages.
+2. **Minute 2: The Data & The Leakage Trap**
+   - 78.8M warehouse rows. Why 1-day lag features and client-grouped holdouts (`GroupShuffleSplit`) are mandatory to prevent domain authority leakage.
+3. **Minute 3: The Priority Matrix Chart (Figure 2)**
+   - Walk through the Priority vs Position Tier scatter plot, highlighting Page 1 CTR fixes and Striking Distance (positions 11–20) leverage zones.
+4. **Minute 4: One Honest Result (Model vs Baseline)**
+   - Random Forest delivers **0.980 Precision@50** and **0.918 ROC-AUC** on unseen clients (vs 0.490 random base rate and 0.824 rule baseline). Disclose the -0.0228 ROC-AUC memorization gap honestly.
+5. **Minute 5: One Actionable Recommendation & The Deployed Paper**
+   - Walk through the 5-archetype Action Playbook and its strict human review guardrails (no automated mass AI publishing). Direct audience to the live paper: https://dhruv6305.github.io/FlyRank_AI/.
+
+---
+
+### Two Shareable Cuts of the Work
+
+#### Cut 1: Short Methodology Social Post (LinkedIn / X Ready)
+> **Headline**: What does machine learning actually reveal about enterprise SEO across 79 million search rows?
+>
+> During my FlyRank AI Internship, I trained and audited predictive models across 78.8M daily performance rows to solve a classic editorial bottleneck: which 20 pages out of 50,000 should an editorial team optimize first?
+>
+> **Key findings from our deployed paper**:
+> - **Honest Validation Matters**: Moving from a naive random split to an honest client-grouped split exposed a -0.0228 ROC-AUC memorization gap, proving the model must be tested on unseen domains.
+> - **Model Lift**: Our depth-5 Random Forest achieved 0.980 Precision@50 and 0.918 ROC-AUC on unseen clients, significantly outperforming the 0.490 random base rate.
+> - **Operational Action Playbook**: Converted model probabilities into transparent reason codes (e.g. Page 1 CTR fixes vs decay-cliff refreshes).
+>
+> 📄 Read the full deployed research paper: https://dhruv6305.github.io/FlyRank_AI/
+> 💻 Code & Colab notebooks: https://github.com/Dhruv6305/FlyRank_AI
+>
+> Built on the FlyRank ML Internship dataset (https://flyrank.ai).
+
+#### Cut 2: 3-Sentence Employer-Facing Summary
+1. **What I Built**: Developed an end-to-end search intelligence ranking pipeline and content action playbook evaluated on 79M rows of enterprise Search Console and Analytics data.
+2. **How I Validated It**: Enforced an honest client-holdout split (`GroupShuffleSplit`) and deliberate leakage audits, demonstrating out-of-domain generalization with 0.980 Precision@50 and 0.918 ROC-AUC.
+3. **What It Delivered**: Published and deployed a standalone, public-safe research paper translating model predictions into an editorial triage system with strict automation guardrails.

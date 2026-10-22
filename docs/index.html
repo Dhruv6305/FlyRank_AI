@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Intelligence at Scale: Predicting Search Visibility Opportunity from Historical Telemetry</title>
-  <meta name="description" content="Research paper evaluating predictive machine learning models and content refresh action playbooks on 79 million rows of search telemetry.">
+  <meta name="description" content="A research paper and case study evaluating predictive machine learning models and content refresh action playbooks on 79 million rows of search telemetry.">
   <meta name="author" content="Dhruv — FlyRank ML Research Intern">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -415,7 +415,7 @@
 
   <!-- Top Global Bar -->
   <div class="top-bar">
-    <div><strong>FlyRank AI Research</strong> · Capstone Paper (ML-11)</div>
+    <div><strong>FlyRank AI Research</strong> · Capstone Paper (ML-11 &amp; ML-12)</div>
     <div>
       <a href="https://github.com/Dhruv6305/FlyRank_AI" target="_blank" rel="noopener">GitHub Repository ↗</a>
     </div>
@@ -425,9 +425,9 @@
 
     <!-- Header Section -->
     <header>
-      <span class="badge-category">Search Intelligence &amp; Applied Machine Learning</span>
+      <span class="badge-category">Search Intelligence &amp; Applied Machine Learning Case Study</span>
       <h1>Search Intelligence at Scale: Predicting Organic Visibility Opportunities from Historical Telemetry</h1>
-      <div class="subtitle">A rigorous audit, client-grouped validation, and decision-support action playbook evaluated on enterprise search data.</div>
+      <div class="subtitle">A case study on solving FlyRank's content decay dilemma: auditing leakage, client-grouped validation, and building an operational action playbook from 79 million rows of search data.</div>
 
       <div class="authors-meta">
         <div><span class="author-name">Dhruv</span> · Machine Learning Research Intern</div>
@@ -449,33 +449,42 @@
       </div>
     </header>
 
-    <!-- 0. Abstract (Canonical 5-Sentence Structure) -->
+    <!-- 0. Abstract (Canonical 5-Sentence Structure with Case Study Anchor) -->
     <section class="abstract-box" id="abstract">
-      <div class="abstract-title">Abstract</div>
+      <div class="abstract-title">Abstract &amp; Case Study Framing</div>
       <p>
-        How can enterprise content teams systematically prioritize high-leverage search opportunities across catalogs of tens of thousands of URLs without relying on arbitrary keyword heuristics? 
+        How can enterprise content teams systematically prioritize high-leverage search opportunities across catalogs of tens of thousands of URLs to solve FlyRank's core challenge: intervening before pages hit the 270–365 day content decay cliff? 
         We analyzed multi-client search and engagement telemetry from the FlyRank warehouse release (78.8M daily performance rows across 104 clients and 519K content pieces, focusing on a 500,000-row mid-panel cohort from March 2026). 
         We formulated organic search click capture as a ranking task, establishing a transparent rule baseline targeting Page 1 low-CTR anomalies and training a depth-constrained Random Forest using strictly 1-day lagged features validated under an honest client-grouped split (<code>GroupShuffleSplit</code>). 
         The Random Forest model achieved a <span class="claim-tag tag-measured">measured</span> <strong>Precision@50 of 0.980</strong> and <strong>ROC-AUC of 0.918</strong> on completely unseen clients (outperforming the 0.490 random picking base rate and beating the rule baseline's 0.824 AUC), while maintaining robustness in a deliberate feature-leakage audit. 
-        These validated signals feed directly into an editorial content action playbook that classifies mature decaying pages, CTR fixes, and striking-distance queries into prioritized, human-reviewed queues.
+        These validated signals feed directly into an editorial content action playbook that operationalizes FlyRank's 3.2× content refresh multiplier by triaging decaying assets, Page 1 CTR fixes, and striking-distance queries into prioritized, human-reviewed queues.
       </p>
     </section>
 
     <!-- 1. Introduction / Problem Statement -->
     <section id="introduction">
-      <h2>1. Introduction &amp; Problem Statement</h2>
+      <h2>1. Introduction &amp; The FlyRank Content Problem</h2>
       <p>
-        In modern digital publishing and search marketing, editorial resources are strictly finite. While enterprise web properties frequently house catalogs ranging from 10,000 to over 100,000 published URLs, content operations teams typically possess the bandwidth to review, refresh, or optimize only 20 to 50 URLs during a given publishing sprint.
+        In enterprise content operations, publishing teams manage catalog inventories spanning tens of thousands of published URLs across diverse domains. However, editorial bandwidth is strictly constrained: a typical content team can manually review, research, and refresh only 20 to 50 URLs during a two-week sprint.
       </p>
+
+      <div class="callout callout-amber">
+        <div class="callout-title">The Real FlyRank Case Study: The Content Decay Cliff</div>
+        <p>
+          FlyRank’s portfolio research across 57 brands established a clear lifecycle curve: published content enters an initial discovery and growth phase up to 90 days (peaking at 61–90 days), stabilizes on a maturation plateau through 180 days, and then encounters a steep <strong>decay cliff between 270 and 365 days</strong> where content health plummets from 33.1 down to 14.0. 
+          However, older content that received an intentional refresh exhibited an observed <strong>3.2× health boost</strong> and <strong>57× more impressions</strong> compared to untouched mature pages.
+        </p>
+      </div>
+
       <p>
-        Traditional SEO prioritization frequently fails on two extremes:
+        This reality creates the core operational dilemma this case study addresses:
       </p>
       <ul>
-        <li><strong>Volume-Chasing Myopia:</strong> Teams chase keywords with massive nominal search volumes ($>10,000$/month), only to discover extreme competitive saturation where new or revised content rarely breaches Page 1.</li>
-        <li><strong>Reactive Decay Triage:</strong> Content is revised only after organic visibility has completely vanished, by which time Google’s ranking systems have demoted the URL and re-crawling cycles take months to restore momentum.</li>
+        <li><strong>Volume-Chasing Myopia:</strong> Teams waste precious hours rewriting content for hyper-competitive keywords with high search volume, where ranking gains are minimal and traffic conversion is poor.</li>
+        <li><strong>Post-Mortem Triage:</strong> Without proactive telemetry, editors notice decaying pages only after search impressions have collapsed to zero, making ranking recovery slow and expensive.</li>
       </ul>
       <p>
-        Machine learning applied to search telemetry offers a powerful <em>decision-support mechanism</em>. By continuously evaluating historical traffic momentum, rank tier, and click capture, predictive models can surface high-probability opportunities before pages suffer irreversible decay cliff abandonment. This study details the development, validation audit, and operational translation of an honest ranking model designed to guide editorial triage.
+        Machine learning applied to search telemetry provides an objective, scalable <em>decision-support filter</em>. By assessing 1-day lagged momentum, position tier, and historical click capture across entire domain catalogs, predictive models identify which mature assets should enter the refresh queue <em>before</em> they cross the decay threshold.
       </p>
     </section>
 
