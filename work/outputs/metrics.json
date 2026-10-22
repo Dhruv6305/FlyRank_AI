@@ -1,0 +1,12 @@
+{
+  "project": "FlyRank AI Search Intelligence Playbook",
+  "evaluation_date": "March 2026",
+  "rows_analyzed": 30000,
+  "actionable_queue_size": 15145,
+  "naive_base_rate": 0.4899,
+  "baseline_rule_precision_at_50": 0.98,
+  "rf_grouped_precision_at_50": 0.98,
+  "rf_grouped_precision_at_100": 0.95,
+  "rf_grouped_roc_auc": 0.9184,
+  "primary_action": "refresh_content_and_facts"
+}
